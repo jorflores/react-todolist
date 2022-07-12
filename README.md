@@ -2,3 +2,4 @@
 
 
 
+npm run deploy

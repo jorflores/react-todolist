@@ -18,7 +18,7 @@
 }
 
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
+  margin-bottom: 10px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -27,4 +27,32 @@
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+
+#nav {
+  color: red;
+}
+
+a.nav_link:link {
+  text-decoration: none;
+}
+
+a.nav_link:hover {
+  cursor: pointer;
+  color: rgb(41, 51, 231);
+}
+/*
+a.nav_link:visited {
+  color: red;
+}
+
+a.nav_link:active {
+  color: red;
+}*/
+
+.nav_menu-spacer {
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+  color: gray;
 }
