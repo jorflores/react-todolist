@@ -1,10 +1,27 @@
-import React from "react";
+import React,{useContext} from "react";
 import "../components/Login.css";
 import logo from "../img/bootstrap-logo.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link,useNavigate,useLocation } from "react-router-dom";
+import AuthContext from '../store/auth-context'
 
 
 function Login() {
+
+
+  const authCtx = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation()
+  const from = location.state?.from?.pathname || "/"
+ // authCtx.
+
+const handleSubmitLogin = (e) => {
+  e.preventDefault()
+  authCtx.login()
+  navigate(from,{replace:true})
+}
+
+
   return (
     <div className="login-body">
       <main className="form-signin w-50">
@@ -31,7 +48,7 @@ function Login() {
             <label htmlFor="floatingPassword">Password</label>
           </div>
 
-          <button className="w-100 btn btn-lg btn-primary" type="submit">
+          <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={handleSubmitLogin}>
             Sign in
           </button>
 

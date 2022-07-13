@@ -14,10 +14,11 @@ function App() {
 
   return (
     <Routes>
+      {/* protected routes routes  */}
       <Route element={<RequireAuth />}>
         <Route path="/" exact element={<TodoApp />}></Route>
       </Route>
-
+      {/* public routes  */}
       <Route path="/Login" element={<Login />}></Route>
       <Route path="/Register" element={<Register />}></Route>
     </Routes>

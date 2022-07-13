@@ -1,7 +1,15 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Link } from "react-router-dom";
+import AuthContext from '../store/auth-context'
 
 function NavBar() {
+
+  const authCtx = useContext(AuthContext);
+
+const Logout = () =>{
+  authCtx.logout()
+}
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -29,7 +37,7 @@ function NavBar() {
         <div className="navbar-collapse collapse" id="navbarColor01">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item  ">
-              <a className="nav-link " href="/Login">
+              <a className="nav-link " onClick={Logout}>
                 Logout
               </a>
             </li>
