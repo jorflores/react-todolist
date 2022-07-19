@@ -37,7 +37,7 @@ const Logout = () =>{
         <div className="navbar-collapse collapse" id="navbarColor01">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item  ">
-              <a className="nav-link " onClick={Logout}>
+              <a className="nav-link logoutNow" onClick={Logout}>
                 Logout
               </a>
             </li>
