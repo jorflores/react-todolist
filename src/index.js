@@ -7,10 +7,10 @@ import { AuthContextProvider } from "./store/auth-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <AuthContextProvider>
      <Routes>
-     <Route path="/*" element = {<App />} />
+     <Route exact path="/*" element = {<App />} />
      </Routes>
     </AuthContextProvider>
   </BrowserRouter>
