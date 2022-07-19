@@ -34,3 +34,7 @@
 .logoutNow{
   cursor: pointer;
 }
+
+.errMsg {
+  color:red
+}
