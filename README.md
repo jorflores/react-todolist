@@ -3,3 +3,4 @@
 # Make sure you execute: npm i 
 
 
+npm run deploy

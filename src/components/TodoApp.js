@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import TodoList from "./TodoList";
 import AddTodo from "./AddTodo";
+import NavBar from "./NavBar";
 
 function TodoApp() {
+
   const data = [
     { title: "Estudiar", id: uuid() },
     { title: "Hacer Tarea", id: uuid() },
@@ -23,10 +24,15 @@ function TodoApp() {
   };
 
   return (
+
+    <div className="App">
+    <NavBar />
+    
     <div className="container">
       <h4 className="mx-4">My Todo</h4>
       <AddTodo agregar={agregarTodo} />
       <TodoList data={todos} eliminar={deleteTodo} />
+    </div>
     </div>
   );
 }
