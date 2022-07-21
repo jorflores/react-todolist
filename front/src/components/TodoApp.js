@@ -1,26 +1,59 @@
-import React, { useState } from "react";
-import { v4 as uuid } from "uuid";
+import React, { useState,useEffect } from "react";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import TodoList from "./TodoList";
 import AddTodo from "./AddTodo";
 import NavBar from "./NavBar";
+import axios from "axios"
+
+
+
 
 function TodoApp() {
 
-  const data = [
-    { title: "Estudiar", id: uuid() },
-    { title: "Hacer Tarea", id: uuid() },
-    { title: "Lavar el carro", id: uuid() },
-  ];
+  const token = localStorage.getItem("token")
+const headers = {'auth_key': token}
 
-  const [todos, setTodos] = useState(data);
+console.log(`Headers ${headers.auth_key}`)
+
+useEffect(()=>{
+
+  axios.get("http://localhost:4000/getTasks",{headers})
+  .then(res => {
+    console.log(res.data)
+    setTodos(res.data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+
+},[])
+
+
+  const [todos, setTodos] = useState([]);
 
   const agregarTodo = (newTodo) => {
-    setTodos((prev) => [...prev, { id: uuid(), title: newTodo }]);
+    axios.post("http://localhost:4000/addTask",{title:newTodo},{headers}).then(res=>{
+      
+    setTodos((prev) => [...prev, res.data]);
+
+    }).catch(err => {
+      console.log(err)
+    })
+    
   };
 
   const deleteTodo = (todo) => {
-    setTodos((prev) => prev.filter((prev) => prev.id !== todo.id));
+    console.log(todo._id)
+
+    axios.post("http://localhost:4000/deleteTask",{id:todo._id},{headers}).then(res=>{
+      
+    setTodos((prev) => prev.filter((prev) => prev._id !== todo._id));
+
+    }).catch(err => {
+      console.log(err)
+    })
+
+
   };
 
   return (

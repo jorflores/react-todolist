@@ -6,8 +6,8 @@ import AuthContext from "../store/auth-context";
 import axios from "axios";
 
 function Login() {
-  const [email, setEmail] = useState("flores.jorgeluis@gmail.com");
-  const [password, setPassword] = useState("1234");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors,setErrors] = useState(false)
   const [errMessage,setErrMessage] = useState("")
 
@@ -27,7 +27,7 @@ function Login() {
         password: password,
       })
       .then((response) => {
-        console.log(response)
+        console.log(`Respuesta de Login backend: ${response.data.token}`)
 
 
         if (response.data.err){
