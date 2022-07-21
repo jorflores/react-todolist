@@ -11,8 +11,8 @@ function Register() {
   const location = useLocation()
   const from = location.state?.from?.pathname || "/"
 
-  const [email,setEmail] = useState("flores.jorgeluis@gmail.com")
-  const [password,setPassword] = useState("1234")
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
   const [errors,setErrors] = useState(false)
   const [errMessage,setErrMessage] = useState("")
 
